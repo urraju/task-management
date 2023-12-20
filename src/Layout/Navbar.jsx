@@ -24,23 +24,30 @@ const Navbar = () => {
   const nav = (
     <>
       <NavLink
-        className={({ isActive }) => (isActive ? "underline text-sky-500" : "")}
+        className={({ isActive }) => (isActive ? "underline text-rose-500" : "")}
         to="/"
       >
         Home
       </NavLink>
       <NavLink
-        className={({ isActive }) => (isActive ? "underline text-sky-500" : "")}
+        className={({ isActive }) => (isActive ? "underline text-rose-500" : "")}
         to="/course"
       >
-        Course
+        Task Category
+      </NavLink>
+      
+      <NavLink
+        className={({ isActive }) => (isActive ? "underline text-rose-500" : "")}
+        to="/course"
+      >
+        Favourite Task
       </NavLink>
 
       {user?.email ? (
         <NavLink
           onClick={handleLogOut}
           className={({ isActive }) =>
-            isActive ? "underline text-sky-500" : ""
+            isActive ? "underline text-rose-500" : ""
           }
           to="/login"
         >
@@ -67,7 +74,7 @@ const Navbar = () => {
             <div className="dropdown">
               <label
                 tabIndex={0}
-                className="btn text-sky-500  border border-sky-500 btn-circle  mr-5  lg:hidden"
+                className="btn text-rose-500  border border-rose-500 btn-circle  mr-5  lg:hidden"
               >
                 <BiMenu className="text-3xl" />
               </label>

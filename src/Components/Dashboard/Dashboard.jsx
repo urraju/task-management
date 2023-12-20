@@ -25,15 +25,15 @@ const DashBoard = () => {
     <div>
       <HelmetUse helmet={"Dashboard"} />
       <div className=" w-full p-2 flex flex-col md:flex-row md:p-5 gap-10 justify-evenly    max-w-screen-2xl mx-auto">
-        <div className="bg-gradient-to-bl to-yellow- from-blue-700 rounded-lg p-10 md:w-[500px]  h-max md:min-h-screen">
+        <div className="bg-gradient-to-bl to-yellow- from-rose-700 rounded-lg p-10 md:w-[500px]  h-max md:min-h-screen">
           <div>
             <div className="flex gap-3 items-center mb-5 ">
               <div className="border rounded-full p-2">
                 <img className="rounded-full w-24" src={user.photoURL} alt="" />
               </div>
               <div>
-                <p className="text-lg font-kdam">{user.displayName}</p>
-                <p>{user.email}</p>
+                <p className=" text-rose-200  font-rubik text-2xl">{user.displayName}</p>
+                <p className="text-rose-200">{user.email}</p>
               </div>
             </div>
           </div>

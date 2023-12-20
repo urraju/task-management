@@ -42,6 +42,7 @@ import { auth } from "../Firebase/Firebase";
     useEffect(() => {
       const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser);
+        setLoading(false)
       });
       return () => {
         unSubscribe();
