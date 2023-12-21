@@ -5,6 +5,7 @@ import Login from "../Pages/Login";
 import DashBoard from "../Components/Dashboard/Dashboard";
 import Register from "../Pages/Register";
 import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
+import TaskManagement from "../Components/Dashboard/TaskManagement";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,12 @@ const router = createBrowserRouter([
         <DashBoard />
       </PrivateRoute>
     ),
+    children : [
+      {
+        path : 'taskmanagement',
+        element : <TaskManagement/>
+      }
+    ]
   },
 ]);
 export default router;

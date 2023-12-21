@@ -13,19 +13,19 @@ const Footer = () => {
     <div className="w-full mt-20 bg-gradient-to-tr  to-violet-950 from-black ">
       <footer className="footer grid grid-cols-2 md:grid-cols-4 w-9/12 mx-auto text-white p-10  font-philospar">
         <nav>
-          <header className="footer-title border-b ">All Course</header>
-          <a className="link link-hover">React</a>
+          <header className="footer-title border-b ">Task</header>
+          <a className="link link-hover">React Developer</a>
           <a className="link link-hover">React Native</a>
-          <a className="link link-hover">Python</a>
-          <a className="link link-hover">GraphQL</a>
-          <a className="link link-hover">Angular</a>
+          <a className="link link-hover">Python Developer</a>
+          <a className="link link-hover">Front end Developer</a>
+          <a className="link link-hover">Angular developer</a>
         </nav>
         <nav>
           <header className="footer-title border-b ">Contact</header>
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>
           <a className="link link-hover"></a>
-          <a className="link link-hover">Get buy</a>
+          <a className="link link-hover">Create Task</a>
         </nav>
         <nav>
           <header className="footer-title border-b ">Offer</header>

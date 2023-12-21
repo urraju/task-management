@@ -8,6 +8,9 @@ export default {
     extend: {
       fontFamily : {
         rubik : "'Rubik', sans-serif"
+      },
+      backgroundImage : {
+        background :  "url('https://i.ibb.co/ZXTBWjJ/SL-113022-54210-35.jpg')",
       }
     },
   },
