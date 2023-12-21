@@ -6,15 +6,21 @@ import useAxios from "../../Hooks/useAxios";
 import useAllData from "../../Hooks/useAllData";
 import useAuth from "../../Hooks/useAuth";
 import TaskTodos from "./TaskTodos";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import Swal from "sweetalert2";
+import { useDrop } from "react-dnd";
 const TaskManagement = () => {
   const axiosPublic = useAxios();
   const { user } = useAuth();
   const [task, refetch, loading] = useAllData();
   const [completeTodo, setCompleteTodo] = useState([]);
-  const [onGoing, setOnGoing] = useState([]);
+  const [onGoing, setOnGoing] = useState( []);
+  const [player, setPlayer] = useState([])
+  const {team, setTeam} = useState([])
+  useEffect(() => {
+    setPlayer(task)
+  })
   const {
     register,
     handleSubmit,
@@ -77,8 +83,30 @@ const TaskManagement = () => {
     });
   }
 
+  
+
+  const [{ isOver }, addToTeamRef] = useDrop({
+    accept: "player",
+    collect: (monitor) => ({ isOver: !!monitor.isOver() }),
+  });
+
+  console.log(isOver);
+  const [{ isOver: isPlayerOver }, removeFromTeamRef] = useDrop({
+    accept: "team",
+    collect: (monitor) => ({ isOver: !!monitor.isOver() }),
+  });
+console.log(isPlayerOver);
+  const movePlayerToTeam = (item) => {
+    console.log(item);
+    setPlayer((prev) => prev.filter((_, i) => item.index !== i));
+    setTeam((prev) => [...prev, item]);
+  };
+  const removePlayerFromTeam = (item) => {
+    setTeam((prev) => prev.filter((_, i) => item.index !== i));
+    setPlayer((prev) => [...prev, item]);
+  };
   return (
-    <DragDropContext>
+     
       <div className="w-full bg-background  rounded-lg  relative bg-cover bg-no-repeat bg-opacity-20 ">
         <HeadingContent
           heading={"Task Management"}
@@ -101,58 +129,33 @@ const TaskManagement = () => {
             <div className="border-b mt-3 border-gray-400 w-full"></div>
             <div>
               <div className="flex justify-between mt-5 gap-3 flex-col md:flex-row text-white">
-                <Droppable droppableId="onpost">
-                  {(provided, snapshot) => (
-                    <div
-                      ref={provided.innerRef}
-                      {...provided.droppableProps}
+                
+                   
+                    <div ref={removeFromTeamRef}
+                      
                       className="text-white flex-1"
                     >
                       <h1 className="uppercase border border-orange-600 border-opacity-50 mx-auto w-max px-3 rounded ">
                         On Post
                       </h1>
-                      {task.map((todo, index) => (
-                        <TaskTodos key={todo._id} handleDelete={handleDelete} index={index} refetch={refetch} todo={todo} />
+                      {player.map((todo, index) => (
+                        <TaskTodos key={todo._id} handleDelete={handleDelete} index={index} refetch={refetch} item={todo} onDropPlayer={movePlayerToTeam} playerType="player" />
                       ))}
-                      {provided.placeholder}
+                     
                     </div>
-                  )}
-                </Droppable>
+                    <div ref={addToTeamRef} className="text-white flex-1">
+                    <h1 className="uppercase border border-orange-600 border-opacity-50 mx-auto w-max px-3 rounded ">
+                        OnGoing
+                      </h1>
+                      {team?.map((todo, index) => (
+                        <TaskTodos key={todo._id} handleDelete={handleDelete} index={index} refetch={refetch} item={todo} onDropPlayer={removePlayerFromTeam} playerType="team" />
+                      ))}
+                    </div>
+               
+                 
 
-                <Droppable droppableId="ongoing">
-                  {(provided, snapshot) => (
-                    <div
-                      ref={provided.innerRef}
-                      {...provided.droppableProps}
-                      className="text-white flex-1"
-                    >
-                      <h1 className="uppercase border border-orange-600 border-opacity-50 mx-auto w-max px-3 rounded ">
-                        Ongoing
-                      </h1>
-                      {onGoing.map((todo, index) => (
-                        <TaskTodos key={todo._id} setOnGoing={setOnGoing} onGoing={onGoing} refetch={refetch} index={index} todo={todo} />
-                      ))}
-                      {provided.placeholder}
-                    </div>
-                  )}
-                </Droppable>
-                <Droppable droppableId="complete">
-                  {(provided, snapshot) => (
-                    <div
-                      ref={provided.innerRef}
-                      {...provided.droppableProps}
-                      className="text-white flex-1"
-                    >
-                      <h1 className="uppercase border border-orange-600 border-opacity-50 mx-auto w-max px-3 rounded ">
-                         complete
-                      </h1>
-                      {completeTodo.map((todo, index) => (
-                        <TaskTodos key={todo._id} setCompleteTodo={setCompleteTodo} completeTodo={completeTodo} index={index} refetch={refetch} todo={todo} />
-                      ))}
-                      {provided.placeholder}
-                    </div>
-                  )}
-                </Droppable>
+                
+                
               </div>
             </div>
           </div>
@@ -257,7 +260,7 @@ const TaskManagement = () => {
           </div>
         </div>
       </div>
-    </DragDropContext>
+    
   );
 };
 export default TaskManagement;
