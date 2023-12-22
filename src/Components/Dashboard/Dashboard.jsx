@@ -32,72 +32,38 @@ const DashBoard = () => {
                 <img className="rounded-full w-24" src={user.photoURL} alt="" />
               </div>
               <div>
-                <p className=" text-rose-200  font-rubik text-2xl">{user.displayName}</p>
+                <p className=" text-rose-200  font-rubik text-2xl">
+                  {user.displayName}
+                </p>
                 <p className="text-rose-200">{user.email}</p>
               </div>
             </div>
           </div>
 
           <ul className="flex flex-col text-white gap-4">
-             
-              <>
-                <li>
-                  <NavLink
-                    className="flex font-roboto gap-2 items-center uppercase"
-                    to="/DashBoard/adminHome"
-                  >
-                    <AiFillHome className="text-lg" />
-                     User Home
-                  </NavLink>
-                </li>
-                
+            <>
+              <li>
+                <NavLink
+                  className="flex font-roboto  gap-2 items-center uppercase"
+                  to="/DashBoard/taskmanagement"
+                >
+                  <AiFillAccountBook className="text-xl" />
+                  Task Management
+                </NavLink>
+              </li>
+            </>
 
-                <li>
-                  <NavLink
-                    className="flex font-roboto  gap-2 items-center uppercase"
-                    to="/DashBoard/taskmanagement"
-                  >
-                    <AiFillAccountBook className="text-xl" />
-                     Task Management
-                  </NavLink>
-                </li>
-
-                <li>
-                  <NavLink
-                    className="flex  uppercase font-roboto gap-2 items-center"
-                    to="/DashBoard/allusers"
-                  >
-                    <FaUsers className="text-lg" />
-                    All User
-                  </NavLink>
-                </li>
-              </>
-          
-           
-              <>
-                <li>
-                  <NavLink
-                    className="flex font-roboto   gap-2 items-center uppercase"
-                    to="/DashBoard/myProfile"
-                  >
-                    <FaUser className="text-lg" />
-                    My Profile
-                  </NavLink>
-                </li>
-                
-
-                <li>
-                  <NavLink
-                    className="flex font-roboto  gap-2 items-center uppercase"
-                    to="/DashBoard/addProduct"
-                  >
-                    <FaShoppingCart className="text-lg" />
-                    Add Product
-                  </NavLink>
-                </li>
-                
-              </>
-         
+            <>
+              <li>
+                <NavLink
+                  className="flex font-roboto   gap-2 items-center uppercase"
+                  to="/DashBoard/myProfile"
+                >
+                  <FaUser className="text-lg" />
+                  My Profile
+                </NavLink>
+              </li>
+            </>
           </ul>
 
           <div className="border-b mt-5"></div>
@@ -117,7 +83,7 @@ const DashBoard = () => {
               <FaBars className="text-lg" />
               Menu
             </NavLink>
-           
+
             <NavLink
               className="flex font-roboto  gap-2 items-center uppercase"
               to="/DashBoard/cart"

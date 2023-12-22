@@ -28,11 +28,8 @@ const Footer = () => {
           <a className="link link-hover">Create Task</a>
         </nav>
         <nav>
-          <header className="footer-title border-b ">Offer</header>
-          <a className="link link-hover">Special Day</a>
-          <a className="link link-hover">Black Friaday</a>
-          <a className="link link-hover">EID Moment</a>
-          <a className="link link-hover">16 December</a>
+          <header className="footer-title border-b ">Make your career</header>
+          <p className="text-3xl">Development</p>
 
           <div className="grid grid-flow-col gap-4"></div>
         </nav>
@@ -41,15 +38,15 @@ const Footer = () => {
             Online Buy And Follow Social
           </header>
 
-          <div className="grid text-lg grid-flow-col gap-4">
-            <FaFacebook />
-            <FaInstagram />
-            <FaTwitter />
-            <FaLinkedin />
-            <FaYoutube />
+          <div className="grid  grid-flow-col gap-4">
+            <a  href=""><FaFacebook className="h-7 w-7  backdrop-blur bg-white/30 rounded-full p-1" /></a>
+            <a href=""><FaInstagram className="h-7 w-7  backdrop-blur bg-white/30 rounded-full p-1" /></a>
+            <a href=""><FaLinkedin className="h-7 w-7  backdrop-blur bg-white/30 rounded-full p-1" /></a>
+            <a href=""><FaYoutube  className="h-7 w-7  backdrop-blur bg-white/30 rounded-full p-1"/></a>
+            
           </div>
           <div>
-            <img className="w-40" src={logo} alt="" />
+            <img className="w-36" src={logo} alt="" />
           </div>
         </nav>
       </footer>

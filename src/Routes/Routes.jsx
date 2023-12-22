@@ -6,6 +6,7 @@ import DashBoard from "../Components/Dashboard/Dashboard";
 import Register from "../Pages/Register";
 import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 import TaskManagement from "../Components/Dashboard/TaskManagement";
+import Update from "../Layout/Update";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,11 @@ const router = createBrowserRouter([
       {
         path : 'taskmanagement',
         element : <TaskManagement/>
+      },
+      {
+        path : 'update/:id',
+        element : <Update/>,
+        loader : ({params}) => fetch(`http://localhost:5000/task/${params.id}`)
       }
     ]
   },
