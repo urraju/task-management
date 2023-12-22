@@ -5,7 +5,7 @@ import task2 from "../assets/taskimg/task2.jpg";
 import { BsCheck } from "react-icons/bs";
 const WhoTask = () => {
   return (
-    <div className="p-2 md:p-5">
+    <div className="p-2 md:p-5 md:mt-32">
       <HeadingContent
         heading={"Development"}
         subHeading={"Only For Developer"}

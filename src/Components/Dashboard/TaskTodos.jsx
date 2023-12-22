@@ -1,9 +1,4 @@
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
-
-import { useForm } from "react-hook-form";
-import useAxios from "../../Hooks/useAxios";
-import useAllData from "../../Hooks/useAllData";
-import Swal from "sweetalert2";
 import { useDrag } from "react-dnd";
 import { Link } from "react-router-dom";
 const Taskitems = ({ item, index, todoType, onDropTodo, handleDelete }) => {
@@ -37,7 +32,7 @@ const Taskitems = ({ item, index, todoType, onDropTodo, handleDelete }) => {
           </p>
           <p className="capitalize text-teal-500 font-semibold">
             {" "}
-            <span>Priority : </span>
+            <span className="text-white">Priority : </span>
             {item.priority}
           </p>
           <div className="flex justify-between">

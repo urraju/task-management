@@ -8,6 +8,7 @@ import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 import TaskManagement from "../Components/Dashboard/TaskManagement";
 import Update from "../Layout/Update";
 import NotFound from "../Layout/NotFound/NotFound";
+import UserProfile from "../Components/Dashboard/UserProfile";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path : 'taskmanagement',
         element : <TaskManagement/>
+      },
+      {
+        path : 'userprofile',
+        element : <UserProfile/>
       },
       {
         path : 'update/:id',

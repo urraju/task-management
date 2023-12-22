@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import bannerImg from "../assets/banner/banner2.jpg";
 import { TypeAnimation } from "react-type-animation";
+import downWave from '../assets/wave/wave (6).svg'
 const Banner = () => {
   return (
-    <div className="p-2 md:p-5  ">
-      <div className="flex max-w-screen-2xl mx-auto items-center md:flex-row flex-col justify-evenly">
+    <div className="">
+      <div className="flex max-w-screen-2xl p-2 md:p-5   relative mx-auto items-center md:flex-row flex-col justify-evenly">
         <div>
           <h1 className="text-5xl   font-bold ">
             Task Management
@@ -41,6 +42,9 @@ const Banner = () => {
         <div>
           <img className="w-[700px]" src={bannerImg} alt="" />
         </div>
+      </div>
+      <div className="w-full">
+        <img className="absolute   md:-bottom-10 bottom-4" src={downWave} alt="" />
       </div>
     </div>
   );

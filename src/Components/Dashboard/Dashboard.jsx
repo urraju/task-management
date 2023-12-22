@@ -1,19 +1,17 @@
 import {
   FaBars,
   FaEnvelope,
-  FaShoppingCart,
+   
   FaUser,
-  FaUsers,
+  
 } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 
 import {
   MdHome,
-  MdPayments,
-  MdReportProblem,
-  MdReviews,
-  MdStars,
+  MdManageAccounts
 } from "react-icons/md";
+ 
 import { AiFillAccountBook, AiFillHome } from "react-icons/ai";
 import HelmetUse from "../Shared/HelmetUse";
 import useAuth from "../../Hooks/useAuth";
@@ -44,10 +42,10 @@ const DashBoard = () => {
             <>
               <li>
                 <NavLink
-                  className="flex font-roboto  gap-2 items-center uppercase"
+                  className="flex font-roboto  gap-1 items-center uppercase"
                   to="/DashBoard/taskmanagement"
                 >
-                  <AiFillAccountBook className="text-xl" />
+                  <MdManageAccounts className="text-2xl" />
                   Task Management
                 </NavLink>
               </li>
@@ -57,7 +55,7 @@ const DashBoard = () => {
               <li>
                 <NavLink
                   className="flex font-roboto   gap-2 items-center uppercase"
-                  to="/DashBoard/myProfile"
+                  to="/DashBoard/userProfile"
                 >
                   <FaUser className="text-lg" />
                   My Profile
