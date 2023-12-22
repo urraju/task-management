@@ -14,13 +14,11 @@ const TaskManagement = () => {
   const axiosPublic = useAxios();
   const { user } = useAuth();
   const [task, refetch, loading] = useAllData();
-  const [completeTodo, setCompleteTodo] = useState([]);
-  const [onGoing, setOnGoing] = useState( []);
-  const [player, setPlayer] = useState([])
-  const {team, setTeam} = useState([])
+  const [taskData, setTaskData] = useState([])
+ console.log(task);
   useEffect(() => {
-    setPlayer(task)
-  })
+    setTaskData(task)
+  },[task]);
   const {
     register,
     handleSubmit,
@@ -55,7 +53,7 @@ const TaskManagement = () => {
   const handlePost = () => {
     document.getElementById("my_modal_3").showModal();
   };
-  console.log(task);
+ 
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -84,26 +82,41 @@ const TaskManagement = () => {
   }
 
   
+  const [ongoing , setOngoing] = useState([])
+  const [complete, setComplete] = useState([])
 
-  const [{ isOver }, addToTeamRef] = useDrop({
-    accept: "player",
+  const [{ isOver }, addTodoRef] = useDrop({
+    accept: "taskData",
     collect: (monitor) => ({ isOver: !!monitor.isOver() }),
   });
+  
 
   console.log(isOver);
-  const [{ isOver: isPlayerOver }, removeFromTeamRef] = useDrop({
-    accept: "team",
+  const [{ isOver: isTodo }, removeTodoRef] = useDrop({
+    accept: "onGoing",
     collect: (monitor) => ({ isOver: !!monitor.isOver() }),
   });
-console.log(isPlayerOver);
-  const movePlayerToTeam = (item) => {
+  const [{ isOver: isComplete }, addCompleteRef] = useDrop({
+    accept: "complete",
+    collect: (monitor) => ({ isOver: !!monitor.isOver() }),
+  });
+
+console.log(isTodo);
+  const moveTodo = (item) => {
     console.log(item);
-    setPlayer((prev) => prev.filter((_, i) => item.index !== i));
-    setTeam((prev) => [...prev, item]);
+    setTaskData((prev) => prev.filter((_, i) => i !== item.index));
+    setOngoing((prev) => [...prev, item]);
   };
-  const removePlayerFromTeam = (item) => {
-    setTeam((prev) => prev.filter((_, i) => item.index !== i));
-    setPlayer((prev) => [...prev, item]);
+  console.log(isComplete);
+  const moveComplete = (item) => {
+    console.log(item);
+    setTaskData((prev) => prev.filter((_, i) => i !== item.index));
+    setComplete((prev) => [...prev, item]);
+  };
+   
+  const removetodo = (item) => {
+    setOngoing((prev) => prev.filter((_, i) => i !== item.index));
+    setTaskData((prev) => [...prev, item]);
   };
   return (
      
@@ -131,25 +144,39 @@ console.log(isPlayerOver);
               <div className="flex justify-between mt-5 gap-3 flex-col md:flex-row text-white">
                 
                    
-                    <div ref={removeFromTeamRef}
+                    <div 
                       
                       className="text-white flex-1"
                     >
                       <h1 className="uppercase border border-orange-600 border-opacity-50 mx-auto w-max px-3 rounded ">
-                        On Post
+                        On Todo
                       </h1>
-                      {player.map((todo, index) => (
-                        <TaskTodos key={todo._id} handleDelete={handleDelete} index={index} refetch={refetch} item={todo} onDropPlayer={movePlayerToTeam} playerType="player" />
+                    <div ref={removeTodoRef}>
+                    {taskData.map((todo, index) => (
+                        <TaskTodos key={todo._id} handleDelete={handleDelete} index={index}   item={todo} onDropTodo={moveTodo} todoType="taskData" />
                       ))}
+                    </div>
                      
                     </div>
-                    <div ref={addToTeamRef} className="text-white flex-1">
-                    <h1 className="uppercase border border-orange-600 border-opacity-50 mx-auto w-max px-3 rounded ">
+                    <div  className="text-white flex-1">
+                    <h1 className="uppercase border border-cyan-600 border-opacity-80 mx-auto w-max px-3 rounded ">
                         OnGoing
                       </h1>
-                      {team?.map((todo, index) => (
-                        <TaskTodos key={todo._id} handleDelete={handleDelete} index={index} refetch={refetch} item={todo} onDropPlayer={removePlayerFromTeam} playerType="team" />
+                    <div ref={addTodoRef}>
+                    {ongoing?.map((todo, index) => (
+                        <TaskTodos key={todo._id} handleDelete={handleDelete} index={index}   item={todo} onDropTodo={removetodo} todoType="onGoing" />
                       ))}
+                    </div>
+                    </div>
+                    <div  className="text-white flex-1">
+                    <h1 className="uppercase border border-cyan-600 border-opacity-80 mx-auto w-max px-3 rounded ">
+                        OnGoing
+                      </h1>
+                    <div ref={addCompleteRef}>
+                    {complete?.map((todo, index) => (
+                        <TaskTodos key={todo._id} handleDelete={handleDelete} index={index}   item={todo} onDropTodo={moveComplete} todoType="complete" />
+                      ))}
+                    </div>
                     </div>
                
                  

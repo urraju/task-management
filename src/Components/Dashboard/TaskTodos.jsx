@@ -6,7 +6,7 @@ import useAxios from "../../Hooks/useAxios";
 import useAllData from "../../Hooks/useAllData";
 import Swal from "sweetalert2";
 import { useDrag } from "react-dnd";
-const Taskitems = ({ item, index, playerType,onDropPlayer, handleDelete, refetch  }) => {
+const Taskitems = ({ item, index, todoType,onDropTodo, handleDelete, refetch  }) => {
     const axiosPublic = useAxios()
      
     const {
@@ -46,14 +46,14 @@ const handleUpdate = () => {
 };
 
 const [{ isDraggble }, dragRef] = useDrag({
-    type: playerType,
+    type: todoType,
     item: () => ({ ...item, index }),
 
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
-        console.log(dropResult);
-      if (dropResult && item) {
-        onDropPlayer(item);
+        console.log(item);
+      if (item) {
+        onDropTodo(item);
       }
     },
     collect: (monitor) => ({
