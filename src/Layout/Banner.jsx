@@ -12,13 +12,13 @@ const Banner = () => {
           <TypeAnimation
               className="text-rose-500 font-poppins text-sm  mb-4 mt-5"
               sequence={[
-                "Create Your Favourite Task",
+                "Create Your Task",
                 1000,
-                "Create Any Task",
+                "Get Any Task",
                 1000,
                 "",
                 1000,
-                "Development Task Create",
+                "Develop your career",
                 1000,
               ]}
               wrapper="span"

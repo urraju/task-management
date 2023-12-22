@@ -7,11 +7,13 @@ import Register from "../Pages/Register";
 import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 import TaskManagement from "../Components/Dashboard/TaskManagement";
 import Update from "../Layout/Update";
+import NotFound from "../Layout/NotFound/NotFound";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement : <NotFound/>,
     children: [
       {
         path: "/",

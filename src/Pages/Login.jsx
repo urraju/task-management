@@ -28,7 +28,7 @@ const Login = () => {
       <div className=" rounded-xl max-w-7xl mx-auto">
         <div className="flex flex-col p-3  md:flex-row items-center justify-center gap-20">
            
-          <div className="border w-full rounded-lg border-blue-200 font-hebo md:w-1/3 p-10">
+          <div className="border w-full rounded-lg border-rose-200 font-hebo md:w-1/3 p-10">
             <h1 className="text-center font-semibold text-3xl">Login</h1>
             <div className="mt-8">
               <form onSubmit={handleLogin}>
@@ -55,7 +55,7 @@ const Login = () => {
 
                 <button
                   type="submit"
-                  className="bg-blue-600 disabled:bg-sky-200 text-white uppercase w-full py-2 rounded"
+                  className="bg-rose-600 disabled:bg-sky-200 text-white uppercase w-full py-2 rounded"
                 >
                   Sign in
                 </button>

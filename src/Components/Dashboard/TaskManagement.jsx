@@ -160,7 +160,7 @@ const TaskManagement = () => {
               </div>
               <div className="text-white flex-1">
                 <h1 className="uppercase border border-cyan-600 border-opacity-80 mx-auto w-max px-3 rounded ">
-                  OnGoing
+                   Complete
                 </h1>
                 <div ref={addTodoRef}>
                   {ongoing?.map((todo, index) => (

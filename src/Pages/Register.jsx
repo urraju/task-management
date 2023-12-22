@@ -41,7 +41,7 @@ const Register = () => {
           <div>
             <img className="hidden w-96 md:block" src={logo} alt="" />
           </div>
-          <div className="border  rounded-lg border-blue-200 font-hebo w-full md:w-1/3 p-10">
+          <div className="border  rounded-lg border-rose-200 font-hebo w-full md:w-1/3 p-10">
             <h1 className="text-center font-semibold text-3xl">Sign Up</h1>
             <div className="mt-8">
               <form onSubmit={handleSubmit(onSubmit)}>
@@ -116,7 +116,7 @@ const Register = () => {
                 </label>
                 <button
                   type="submit"
-                  className="bg-blue-600 uppercase text-white w-full py-2 rounded"
+                  className="bg-rose-600 uppercase text-white w-full py-2 rounded"
                 >
                   Sign Up
                 </button>

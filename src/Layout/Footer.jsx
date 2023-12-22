@@ -11,7 +11,7 @@ import {
 const Footer = () => {
   return (
     <div className="w-full mt-20 bg-gradient-to-tr  to-violet-950 from-black ">
-      <footer className="footer grid grid-cols-2 md:grid-cols-4 w-9/12 mx-auto text-white p-10  font-philospar">
+      <footer className="footer grid grid-cols-2 w-full md:grid-cols-4 md:w-9/12 mx-auto text-white p-10  font-philospar">
         <nav>
           <header className="footer-title border-b ">Task</header>
           <a className="link link-hover">React Developer</a>
@@ -28,17 +28,17 @@ const Footer = () => {
           <a className="link link-hover">Create Task</a>
         </nav>
         <nav>
-          <header className="footer-title border-b ">Make your career</header>
-          <p className="text-3xl">Development</p>
+          <header className="footer-title border-b ">your career</header>
+          <p className="md:text-3xlj text-lg">Development</p>
 
-          <div className="grid grid-flow-col gap-4"></div>
+           
         </nav>
         <nav>
           <header className="footer-title flex border-b ">
-            Online Buy And Follow Social
+             Follow Social
           </header>
 
-          <div className="grid  grid-flow-col gap-4">
+          <div className="grid  grid-flow-col gap-2 mt-5">
             <a  href=""><FaFacebook className="h-7 w-7  backdrop-blur bg-white/30 rounded-full p-1" /></a>
             <a href=""><FaInstagram className="h-7 w-7  backdrop-blur bg-white/30 rounded-full p-1" /></a>
             <a href=""><FaLinkedin className="h-7 w-7  backdrop-blur bg-white/30 rounded-full p-1" /></a>
@@ -46,7 +46,7 @@ const Footer = () => {
             
           </div>
           <div>
-            <img className="w-36" src={logo} alt="" />
+            <img className="w-20 mt-5 ml-5" src={logo} alt="" />
           </div>
         </nav>
       </footer>
